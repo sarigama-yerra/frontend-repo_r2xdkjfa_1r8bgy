@@ -1,5 +1,4 @@
 import React from 'react'
-import Spline from '@splinetool/react-spline'
 import { ShoppingBag, Sparkles, ArrowRight, Gem, Shield, Truck, Star } from 'lucide-react'
 
 function NavBar() {
@@ -28,12 +27,22 @@ function NavBar() {
 function Hero() {
   return (
     <section className="relative min-h-screen w-full overflow-hidden flex items-center" aria-label="Hero">
-      {/* 3D scene */}
-      <div className="absolute inset-0">
-        <Spline scene="https://prod.spline.design/JqBuM4DcZiGXqO-1/scene.splinecode" style={{ width: '100%', height: '100%' }} />
+      {/* Background video (femminile, effetto cristallo) */}
+      <div className="absolute inset-0 -z-10">
+        <video
+          className="w-full h-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="https://images.unsplash.com/photo-1535467882748-487002e5af3a?q=80&w=1200&auto=format&fit=crop"
+        >
+          <source src="https://assets.mixkit.co/videos/preview/mixkit-pink-glitter-particles-1389-large.mp4" type="video/mp4" />
+          <source src="https://assets.mixkit.co/videos/preview/mixkit-pink-particles-on-a-dark-background-9966-large.mp4" type="video/mp4" />
+        </video>
       </div>
 
-      {/* Feminine crystal glow overlays for readability */}
+      {/* Overlays per leggibilità e glow cristallo */}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-black/80" />
       <div className="pointer-events-none absolute inset-0 [background:radial-gradient(60%_50%_at_50%_40%,rgba(255,210,240,0.25)_0%,transparent_60%)]" />
       <div className="pointer-events-none absolute inset-0 [background:radial-gradient(30%_30%_at_20%_15%,rgba(255,182,222,.25),transparent_60%),radial-gradient(35%_35%_at_80%_10%,rgba(160,220,255,.22),transparent_60%)] mix-blend-screen" />
@@ -91,7 +100,7 @@ function Collection() {
   ]
 
   return (
-    <section id="collection" className="py-24">
+    <section id="collection" className="py-24 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-end justify-between mb-10">
           <div>
@@ -128,7 +137,7 @@ function Collection() {
 
 function Craft() {
   return (
-    <section id="craft" className="py-24">
+    <section id="craft" className="py-24 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
         <div className="order-2 lg:order-1">
           <h2 className="text-2xl sm:text-3xl text-white font-semibold">Brillantezza che dura</h2>
@@ -157,7 +166,7 @@ function Craft() {
 
 function Newsletter() {
   return (
-    <section id="about" className="py-24">
+    <section id="about" className="py-24 bg-black">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h3 className="text-2xl sm:text-3xl text-white font-semibold">Entra nel Club Cristalla</h3>
         <p className="mt-3 text-zinc-300">Anteprime, edizioni limitate e promozioni dedicate. Brilla prima di tutti.</p>
@@ -172,8 +181,7 @@ function Newsletter() {
 
 function Footer() {
   return (
-    <footer id="contact" className="relative border-t border-white/10">
-      <div className="absolute inset-0 pointer-events-none bg-black/50" />
+    <footer id="contact" className="relative border-t border-white/10 bg-black">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid sm:grid-cols-3 gap-8 text-zinc-300">
           <div>
@@ -206,9 +214,9 @@ function Footer() {
 export default function App() {
   return (
     <div className="relative min-h-screen bg-black text-white">
-      {/* Global feminine crystal background */}
-      <div className="pointer-events-none absolute inset-0 -z-10 [background:radial-gradient(circle_at_20%_10%,rgba(255,183,223,.22),transparent_40%),radial-gradient(circle_at_80%_0%,rgba(163,224,255,.18),transparent_45%),radial-gradient(circle_at_60%_85%,rgba(255,220,255,.15),transparent_40%)]" />
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[conic-gradient(from_230deg_at_50%_50%,rgba(255,255,255,.18),transparent_20%,rgba(255,255,255,.1)_40%,transparent_60%,rgba(255,255,255,.18)_80%,transparent_100%)] mix-blend-overlay" />
+      {/* Global feminine crystal background accents (subtle, below content) */}
+      <div className="pointer-events-none absolute inset-0 -z-20 [background:radial-gradient(circle_at_20%_10%,rgba(255,183,223,.18),transparent_40%),radial-gradient(circle_at_80%_0%,rgba(163,224,255,.14),transparent_45%),radial-gradient(circle_at_60%_85%,rgba(255,220,255,.12),transparent_40%)]" />
+      <div className="pointer-events-none absolute inset-0 -z-20 bg-[conic-gradient(from_230deg_at_50%_50%,rgba(255,255,255,.12),transparent_20%,rgba(255,255,255,.08)_40%,transparent_60%,rgba(255,255,255,.12)_80%,transparent_100%)] mix-blend-overlay" />
 
       <NavBar />
       <Hero />
