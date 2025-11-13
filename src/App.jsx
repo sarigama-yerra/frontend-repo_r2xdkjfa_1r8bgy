@@ -27,7 +27,7 @@ function NavBar() {
 function Hero() {
   return (
     <section className="relative min-h-screen w-full overflow-hidden flex items-center" aria-label="Hero">
-      {/* Background video (femminile, effetto cristallo) */}
+      {/* Background video: scelta "liquid glass" con bagliore prismatico */}
       <div className="absolute inset-0 -z-10">
         <video
           className="w-full h-full object-cover"
@@ -38,14 +38,26 @@ function Hero() {
           poster="https://images.unsplash.com/photo-1535467882748-487002e5af3a?q=80&w=1200&auto=format&fit=crop"
         >
           <source src="https://assets.mixkit.co/videos/preview/mixkit-pink-glitter-particles-1389-large.mp4" type="video/mp4" />
-          <source src="https://assets.mixkit.co/videos/preview/mixkit-pink-particles-on-a-dark-background-9966-large.mp4" type="video/mp4" />
         </video>
       </div>
 
-      {/* Overlays per leggibilità e glow cristallo */}
+      {/* Layer 1: vignetta e contrasto */}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-black/80" />
-      <div className="pointer-events-none absolute inset-0 [background:radial-gradient(60%_50%_at_50%_40%,rgba(255,210,240,0.25)_0%,transparent_60%)]" />
-      <div className="pointer-events-none absolute inset-0 [background:radial-gradient(30%_30%_at_20%_15%,rgba(255,182,222,.25),transparent_60%),radial-gradient(35%_35%_at_80%_10%,rgba(160,220,255,.22),transparent_60%)] mix-blend-screen" />
+
+      {/* Layer 2: glow morbido */}
+      <div className="pointer-events-none absolute inset-0 [background:radial-gradient(60%_50%_at_50%_40%,rgba(255,210,240,0.22)_0%,transparent_60%)]" />
+
+      {/* Layer 3: riflessi prismatici mobili (liquid glass) */}
+      <div className="pointer-events-none absolute -inset-8 mix-blend-screen opacity-50 animate-glow-rotate"
+           style={{
+             background: 'conic-gradient(from_180deg_at_50%_50%, rgba(255,255,255,.12), rgba(255,183,223,.18), rgba(163,224,255,.16), transparent 70%)'
+           }}
+      />
+      <div className="pointer-events-none absolute inset-0 mix-blend-screen opacity-35 animate-shimmer-pan"
+           style={{
+             background: 'radial-gradient(40%_35%_at_20%_15%, rgba(255,182,222,.28), transparent 60%), radial-gradient(45%_40%_at_80%_10%, rgba(160,220,255,.24), transparent 65%)'
+           }}
+      />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-24 w-full">
         <div className="max-w-2xl">

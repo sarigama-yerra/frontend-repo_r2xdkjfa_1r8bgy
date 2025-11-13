@@ -43,4 +43,25 @@
     --tw-exit-translate-x: initial;
     --tw-exit-translate-y: initial;
   }
+
+  /* Crystal liquid-glass motion overlays */
+  @keyframes glow-rotate {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.02); }
+    100% { transform: rotate(360deg) scale(1); }
+  }
+
+  @keyframes shimmer-pan {
+    0% { transform: translateX(-20%) translateY(-10%) rotate(0deg); }
+    50% { transform: translateX(10%) translateY(5%) rotate(2deg); }
+    100% { transform: translateX(20%) translateY(10%) rotate(0deg); }
+  }
+
+  .animate-glow-rotate {
+    animation: glow-rotate 22s linear infinite;
+  }
+
+  .animate-shimmer-pan {
+    animation: shimmer-pan 14s ease-in-out infinite;
+  }
 }
